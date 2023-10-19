@@ -72,3 +72,27 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}}
+
+//another way of updating the user
+/*
+@Override
+public boolean updateUser(String userName, User user) {
+	// TODO Auto-generated method stub
+	int idx = -1;
+	for(int i=0;i<al.size();i++) {
+		if(al.get(i).getUserName().equals(userName)) {
+			idx = i;
+			break;
+		}
+	}
+	
+	if(idx==-1)return false;
+	
+	al.set(idx, user);
+	return true;
+}
+*/
+
+
+
+*/
