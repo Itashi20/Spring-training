@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.model.User;
 import com.service.UserDAO;
 
+import io.swagger.annotations.ApiOperation;
+
 
 
 //@Controller
@@ -60,7 +62,7 @@ public class AppController {
 	
 	//@RequestMapping(value="/register",method=RequestMethod.POST)
 	//@ResponseBody
-	@PostMapping("/register")
+
 	//public String RegisterValid(@RequestParam("uname")String uname,@RequestParam("pwd")String pwd,@RequestParam("email")String email,@RequestParam("city")String city){
 	
 //	public String RegisterValid(@ModelAttribute User users){
@@ -72,7 +74,7 @@ public class AppController {
 //		
 //		
 //	}
-	
+	@PostMapping("/register")
 	public String RegisterValid(@RequestBody User users){
 		
 		userdao.addUser(users);
@@ -90,6 +92,9 @@ public class AppController {
 	}
 	
 	@GetMapping("/finduser/{uid}")
+	@ApiOperation(value="find details by id",
+	notes="provide id for the data",response=User.class)
+
 	public String findUser(@PathVariable int uid) {
 		
 		if(userdao.findUser(uid)) {

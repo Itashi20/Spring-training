@@ -65,9 +65,10 @@ public class UserDAOImpl implements UserDAO {
 				id=i;
 			}
 		}
-		if(id!=-1)
-			return true;
-		return false;
+		
+		if(id == -1)return false;
+		al.remove(id);
+		return true;
 	}
 	@Override
 	public boolean updateUser(String name, User user) {
@@ -84,3 +85,25 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}}
+
+
+
+
+/*
+@Override
+public boolean updateUser(String userName, User user) {
+	// TODO Auto-generated method stub
+	int idx = -1;
+	for(int i=0;i<al.size();i++) {
+		if(al.get(i).getUserName().equals(userName)) {
+			idx = i;
+			break;
+		}
+	}
+	
+	if(idx==-1)return false;
+	
+	al.set(idx, user);
+	return true;
+}
+*/
